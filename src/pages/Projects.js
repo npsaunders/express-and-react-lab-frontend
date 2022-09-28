@@ -19,10 +19,9 @@ function Projects(props) {
   useEffect(() => { getProjectsData() }, []);
 
   // define a function that will return the JSX needed once we get the data
-  const loaded = (props) => {
+  const loaded = () => {
 
-    console.log('projects', projects)
-    return projects.map((project, index) => (
+    return projects.map((project) => (
       <div>
         <h1>{project.name}</h1>
         <img src={project.image} alt={project.name} />
@@ -32,7 +31,7 @@ function Projects(props) {
         <a href={project.live}>
           <button>live site</button>
         </a>
-        key={index}
+
       </div>
     ));
   };
