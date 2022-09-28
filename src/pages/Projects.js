@@ -2,7 +2,6 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 
 function Projects(props) {
-  console.log(props)
   // create state to hold projects
   const [projects, setProjects] = useState(null);
 
@@ -17,12 +16,12 @@ function Projects(props) {
   };
 
   // make an initial call for the data inside a useEffect, so it only happens once on component load
-  useEffect(() => {
-    getProjectsData();
-  });
+  useEffect(() => { getProjectsData() }, []);
 
   // define a function that will return the JSX needed once we get the data
-  const loaded = () => {
+  const loaded = (props) => {
+
+    console.log('projects', projects)
     return projects.map((project, index) => (
       <div>
         <h1>{project.name}</h1>
@@ -33,6 +32,7 @@ function Projects(props) {
         <a href={project.live}>
           <button>live site</button>
         </a>
+        key={index}
       </div>
     ));
   };

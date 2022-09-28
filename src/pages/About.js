@@ -21,7 +21,7 @@ const About = props => {
 
   useEffect(() => {
     getAboutData();
-  });
+  }, []);
 
   // define a function that will return the JSX needed once we get the data
   const loaded = () => (
